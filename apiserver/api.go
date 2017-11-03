@@ -240,6 +240,7 @@ func (q *geoipQuery) Record(ip net.IP, lang string) *responseRecord {
 		Latitude:    roundFloat(q.Location.Latitude, .5, 4),
 		Longitude:   roundFloat(q.Location.Longitude, .5, 4),
 		MetroCode:   q.Location.MetroCode,
+		Blacklist:	 1,
 	}
 	if len(q.Region) > 0 {
 		r.RegionCode = q.Region[0].ISOCode
