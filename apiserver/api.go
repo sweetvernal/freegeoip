@@ -296,7 +296,8 @@ type responseRecord struct {
 	TimeZone    string   `json:"time_zone"`
 	Latitude    float64  `json:"latitude"`
 	Longitude   float64  `json:"longitude"`
-	MetroCode   uint     `json:"metro_code"`
+	MetroCode   uint     `json:"metro_code"`,
+	Blacklist   uint     `json:"blacklist"`
 }
 
 func (rr *responseRecord) String() string {
@@ -315,6 +316,7 @@ func (rr *responseRecord) String() string {
 		strconv.FormatFloat(rr.Latitude, 'f', 4, 64),
 		strconv.FormatFloat(rr.Longitude, 'f', 4, 64),
 		strconv.Itoa(int(rr.MetroCode)),
+		1
 	})
 	w.Flush()
 	return b.String()
